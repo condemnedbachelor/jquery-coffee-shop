@@ -17,7 +17,7 @@
         <h1>Coffee Shop</h1>
         <br>
 
-        <img id="coffee-image" src="LOLWUT" alt="make this image work with js" height="300" width="200">
+        <img id="coffee-image" src="IGNOREME" alt="make this image work with js" height="300" width="200">
 
        
         <h3 id="message">Click The Image To Order Coffee</h3>
@@ -43,48 +43,17 @@
 
         <h4>Total: <span id="revenue"><!-- Revenue Message will show up here --></span></h4>
 
-     <script>
-    var theCoffeePic = document.getElementById("coffee-image");
-    theCoffeePic.setAttribute('src','/Users/rosie/desktop/exercises/kristin_ashley_js_coffee_shop/static/coffee_beans.jpg');
-
-    function makeCoffee() {
-        var changeCoffeePic = document.getElementById("coffee-image");
-        changeCoffeePic.setAttribute('src','/Users/rosie/desktop/exercises/kristin_ashley_js_coffee_shop/static/coffee_machine.jpg')
-        setTimeout(mugIncoming, 1000);
-
-    }
-
-    theCoffeePic.addEventListener('click',makeCoffee);
-
-    function mugIncoming() {
-        var mugCoffeePic = document.getElementById("coffee-image");
-        mugCoffeePic.setAttribute('src', '/Users/rosie/desktop/exercises/kristin_ashley_js_coffee_shop/static/coffee_mug.jpg');
-        setTimeout(sheLovesIt, 2000);
-    }
-
-
-        function sheLovesIt() {
-        var lovingIt = document.getElementById("coffee-image");
-        lovingIt.setAttribute('src', 'https://www.colourbox.com/preview/5234769-beautiful-woman-drinking-coffee.jpg');
-        setTimeout(waitForIt, 1500);
-    }
-
-    function waitForIt() {
-        var newCoffeePic = document.getElementById("coffee-image");
-        newCoffeePic.setAttribute('src', '/Users/rosie/desktop/exercises/kristin_ashley_js_coffee_shop/static/coffee_beans.jpg');
-    }
-
-    </script>
 
     </div>
 </div>
 
 <script>
-
+"use strict";
     // Set these variables to their DOM elements
 
     var myImage;
     var myRevenueMessage;
+    var drinksOrdered = [];
 
     // use this JavaScript object in further study step
 
@@ -94,6 +63,38 @@
         "latte": 4.15,
         "hot chocolate": 2.50
     };
+
+    var theCoffeePic = document.getElementById("coffee-image");
+    theCoffeePic.setAttribute('src','/Users/rosie/desktop/exercises/kristin_ashley_js_coffee_shop/static/coffee_beans.jpg');
+
+    function makeCoffee(drinkType) {
+        var changeCoffeePic = document.getElementById("coffee-image");
+        changeCoffeePic.setAttribute('src','/Users/rosie/desktop/exercises/kristin_ashley_js_coffee_shop/static/coffee_machine.jpg')
+        setTimeout(mugIncoming, 1000);
+        // alert(drinkType);
+        drinksOrdered.push(" " + drinkType);
+        alert("these are the drinks in your array: " + drinksOrdered);
+    }
+
+    theCoffeePic.addEventListener('click', function () { return makeCoffee("brew"); });
+
+
+    function mugIncoming() {
+        var mugCoffeePic = document.getElementById("coffee-image");
+        mugCoffeePic.setAttribute('src', '/Users/rosie/desktop/exercises/kristin_ashley_js_coffee_shop/static/coffee_mug.jpg');
+        setTimeout(sheLovesIt, 2000);
+    }
+
+    function sheLovesIt() {
+        var lovingIt = document.getElementById("coffee-image");
+        lovingIt.setAttribute('src', 'https://www.colourbox.com/preview/5234769-beautiful-woman-drinking-coffee.jpg');
+        setTimeout(waitForIt, 1500);
+    }
+
+    function waitForIt() {
+        var newCoffeePic = document.getElementById("coffee-image");
+        newCoffeePic.setAttribute('src', '/Users/rosie/desktop/exercises/kristin_ashley_js_coffee_shop/static/coffee_beans.jpg');
+    }
 
 
 </script>
